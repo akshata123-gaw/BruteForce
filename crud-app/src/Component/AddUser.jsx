@@ -5,16 +5,17 @@ import { useNavigate } from 'react-router-dom';
 
 const initialValue = {
     name: '',
-    PRN:'',
+    PRN: '',
     username: '',
     email: '',
     phone: '',
-    currentyear:'',
-    branch:'' ,
-    CGPA:'' ,
-    SSC_marks:'',
-    HSC_marks:''
-}
+    currentyear: '',
+    branch: '',
+    CGPA: '',
+    SSC_marks: '',
+    HSC_marks: '',
+    resume:''
+};
 
 const Container = styled(FormGroup)`
     width: 50%;
@@ -25,18 +26,34 @@ const Container = styled(FormGroup)`
 
 const AddUser = () => {
     const [user, setUser] = useState(initialValue);
-    const { name,PRN, username, email, phone,currentyear,branch,CGPA,SSC_marks,HSC_marks } = user;
-    
+    const { name, PRN, username, email, phone, currentyear, branch, CGPA, SSC_marks, HSC_marks,resume } = user;
+
     let navigate = useNavigate();
 
     const onValueChange = (e) => {
-        setUser({...user, [e.target.name]: e.target.value})
+        setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    const addUserDetails = async() => {
+    const onFileChange = (e) => {
+        setUser({ ...user, resume: e.target.files[0] });
+    };
+
+    const addUserDetails = async () => {
+        // const formData = new FormData();
+        // formData.append('name', name);
+        // formData.append('PRN', PRN);
+        // formData.append('username', username);
+        // formData.append('email', email);
+        // formData.append('phone', phone);
+        // formData.append('currentyear', currentyear);
+        // formData.append('branch', branch);
+        // formData.append('CGPA', CGPA);
+        // formData.append('SSC_marks', SSC_marks);
+        // formData.append('HSC_marks', HSC_marks);
+        // formData.append('resume', resume);
         await addUser(user);
-        navigate('/all');
-    }
+        navigate('/admin/all');
+    };
 
     return (
         <Container>
@@ -55,7 +72,7 @@ const AddUser = () => {
             </FormControl>
             <FormControl>
                 <InputLabel htmlFor="my-input">Email</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input"/>
+                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" />
             </FormControl>
             <FormControl>
                 <InputLabel htmlFor="my-input">Phone</InputLabel>
@@ -81,10 +98,20 @@ const AddUser = () => {
                 <InputLabel htmlFor="my-input">HSC Marks</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='HSC_marks' value={HSC_marks} id="my-input" />
             </FormControl>
+            {/* <FormControl>
+                <InputLabel htmlFor="my-input">Resume (PDF)</InputLabel>
+                <Input
+                    type="file"
+                    accept="application/pdf"
+                    onChange={onFileChange}
+                    name="resume"
+                    id="my-input"
+                />
+            </FormControl> */}
             <FormControl>
                 <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
             </FormControl>
-            
+
         </Container>
     )
 }

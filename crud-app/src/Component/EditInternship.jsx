@@ -34,6 +34,7 @@ const EditInternship = () => {
     }
 
     const editInternshipDetails = async() => {
+        console.log(id);
         const response = await editInternship(id, internship);
         navigate('/allint');
     }
@@ -68,5 +69,4 @@ const EditInternship = () => {
         </Container>
     )
 }
-
 export default EditInternship;

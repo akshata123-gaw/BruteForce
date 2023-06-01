@@ -23,7 +23,7 @@ const TRow = styled(TableRow)`
 `;
 
 const AllPPOs = () => {
-    const [ppos, setPPOs] = useState([]);
+    const [ppos, setPpos] = useState([]);
     
     useEffect(() => {
         getAllPPOs();
@@ -36,7 +36,8 @@ const AllPPOs = () => {
 
     const getAllPPOs = async () => {
         let response = await getPPOs();
-        setPPOs(response.data);
+        setPpos(response.data);
+        console.log(response.data)
     }
 
     return (
@@ -61,8 +62,8 @@ const AllPPOs = () => {
                         <TableCell>{ppo.pdetail}</TableCell>
                         
                         <TableCell>
-                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${ppo._id}`}>Edit</Button> {/* change it to user.id to use JSON Server */}
-                            <Button color="secondary" variant="contained" onClick={() => deletePPOData(ppo._id)}>Delete</Button> {/* change it to user.id to use JSON Server */}
+                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/editppo/${ppo._id}`}>Edit</Button>
+                            <Button color="secondary" variant="contained" onClick={() => deletePPOData(ppo._id)}>Delete</Button> 
                         </TableCell>
                     </TRow>
                 ))}

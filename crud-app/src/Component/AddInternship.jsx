@@ -1,9 +1,9 @@
 import react, { useState } from 'react';
 
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
-
-import { useNavigate } from 'react-router-dom';
 import { addInternship } from '../Service/api';
+import { useNavigate } from 'react-router-dom';
+
 
 const initialValue = {
     cname: '',

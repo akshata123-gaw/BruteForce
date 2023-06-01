@@ -60,7 +60,7 @@ const AllInternships = () => {
                         <TableCell>{internship.stipend}</TableCell>
                         <TableCell>{internship.detail}</TableCell>
                          <TableCell>
-                             <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${internship._id}`}>Edit</Button>
+                             <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/editint/${internship._id}`}>Edit</Button>
                              <Button color="secondary" variant="contained" onClick={() => deleteInternshipData(internship._id)}>Delete</Button> 
                          </TableCell>
                      </TRow>

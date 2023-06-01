@@ -55,11 +55,11 @@ const CodeForInterview = () => {
         }}>
             <Box color="black" 
                 bgcolor="rgb(255,253,208)" p={8} alignItems={'center'} >
-                    <Button color="primary" variant="contained" style={{padding:"10px"}}component={Link} to="/addppo">PPO</Button>
+                    <Button color="primary" variant="contained" style={{padding:"10px"}}component={Link} to="/addppo">Full Time PPO</Button>
             </Box>
         </div>
 
-        <div style={{ 
+        {/* <div style={{ 
             marginLeft: '2%', 
             marginTop: '0.1px', 
             marginBottom: '100px',
@@ -73,7 +73,7 @@ const CodeForInterview = () => {
                 bgcolor="rgb(255,253,208)" p={8} alignItems={'center'}  >
                      <Button color="primary" variant="contained" style={{padding:"10px"}}component={Link} to="/addann">Announcements</Button>
             </Box>
-        </div>
+        </div> */}
         
         </div>
     );

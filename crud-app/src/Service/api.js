@@ -30,16 +30,11 @@ export const editUser = async (id, user) => {
 
 export const getInternships = async (id) => {
     id = id || '';
-    // try{
     return await axios.get(`${internshipURL}/allint`);
-    // }
-    // } catch(error){
-    //     console.log('error while calling getinternships API',error);
-    // }
 }
 export const getPPOs = async (id) => {
     id = id || '';
-    return await axios.get(`${internshipURL}/${id}`);
+    return await axios.get(`${internshipURL}/allppo`);
 }
 
 export const addInternship = async (internship) => { 
@@ -47,18 +42,20 @@ export const addInternship = async (internship) => {
 }
 
 export const addPPO = async (ppo) => { 
+    // console.log("YAha Aaya " + ppo);
     return await axios.post(`${internshipURL}/addppo`, ppo);
 }
 
 export const editInternship = async (id, internship) => {
-    return await axios.put(`${usersUrl}/${id}`, internship);
+    // console.log("YAha Aaya " + id)
+    return await axios.put(`${usersUrl}/int/${id}`, internship);
 }
 export const editPPO = async (id, ppo) => {
-    return await axios.put(`${usersUrl}/${id}`, ppo)
+    return await axios.put(`${usersUrl}/ppo/${id}`, ppo)
 }
 export const deleteInternship = async (id) => {
-    return await axios.delete(`${internshipURL}/${id}`);
+    return await axios.delete(`${internshipURL}/deli/${id}`);
 }
 export const deletePPO = async (id) => {
-    return await axios.delete(`${internshipURL}/${id}`);
+    return await axios.delete(`${internshipURL}/delp${id}`);
 }
